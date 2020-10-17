@@ -1,0 +1,33 @@
+.Blueprint3D {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+
+    #floor,
+    #viewer {
+        width: 100%;
+        height: 100%;
+    }
+
+    #floor {
+        display: none;
+    }
+
+    &.floor {
+        #floor {
+            display: block;
+        }
+
+        #viewer {
+            display: none;
+        }
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
