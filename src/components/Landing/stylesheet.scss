@@ -1,2 +1,242 @@
+@import "../../variables";
+
 .Landing {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+
+  .logo {
+    position: relative;
+    color: $primary-color;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    font-size: $largest;
+    text-shadow: 0 1px rgba(black, .2);
+    margin-bottom: 1rem;
+    pointer-events: none;
+  }
+
+  .card {
+    @include card;
+    position: relative;
+    width: 24rem;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .venue {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        font-size: $largest;
+        margin-right: .5rem;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+
+        .name {
+          font-size: $large;
+          font-weight: 500;
+        }
+
+        .address {
+          font-size: $small;
+        }
+      }
+    }
+
+    .weeks {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+
+      .week-detail {
+        @include card;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        .cover {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: stretch;
+          position: relative;
+          background-position: center;
+          background-size: cover;
+          height: 8rem;
+          cursor: pointer;
+
+          .text {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem 1.5rem;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+            .theme {
+              color: white;
+              font-size: $large;
+              font-weight: 500;
+            }
+
+            .dates {
+              color: white;
+              font-size: $small;
+            }
+          }
+        }
+
+        .voted {
+          background-color: $light-color;
+          font-weight: 500;
+          font-size: $small;
+          text-align: center;
+          padding: .5rem 1.5rem;
+        }
+
+        .stores {
+          display: flex;
+          flex-direction: column;
+          padding: .5rem 0;
+
+          .store {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+
+            &.voting {
+              cursor: pointer;
+
+              &:hover {
+                background-color: rgba($primary-color, .15);
+              }
+            }
+
+            .rank {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 4rem;
+              margin-right: 1rem;
+
+              .icon {
+                font-size: $large;
+                margin-bottom: .2rem;
+
+                &.rank-0 {
+                  color: #C9B037;
+                }
+
+                &.rank-1 {
+                  color: silver;
+                }
+
+                &.rank-2 {
+                  color: #AD8A56;
+                }
+              }
+
+              .votes {
+                font-size: $smallest;
+                font-weight: 500;
+              }
+
+              .vote {
+                $size: 16px;
+                width: $size;
+                height: $size;
+                border-radius: $size;
+                border: 2px solid $primary-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &.active:after {
+                  content: '';
+                  $size: 12px;
+                  width: $size;
+                  height: $size;
+                  border-radius: $size;
+                  background-color: $primary-color;
+                }
+              }
+            }
+
+            .text {
+              display: flex;
+              flex-direction: column;
+
+              .name {
+                font-weight: 500;
+              }
+
+              .description {
+                font-size: $small;
+              }
+            }
+          }
+
+          button {
+            margin: .5rem 1rem;
+          }
+        }
+      }
+
+      .week-summary {
+        @include card;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 1rem;
+        cursor: pointer;
+
+        .header {
+          display: flex;
+          align-items: center;
+
+          .cover {
+            width: 4rem;
+            height: 4rem;
+            background-position: center;
+            background-size: cover;
+          }
+
+          .text {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+
+            .theme {
+              font-weight: 500;
+            }
+
+            .dates {
+              font-size: $small;
+            }
+          }
+        }
+
+        .stores {
+          background-color: #f8f8f8;
+          border-top: 1px solid $divider-color;
+          padding: .5rem;
+          text-align: center;
+          font-size: $small;
+
+          &.voting {
+            border-color: $dark-color;
+            background-color: $primary-color;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
 }

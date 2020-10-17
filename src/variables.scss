@@ -1,0 +1,18 @@
+$primary-color: #ffb300;
+$light-color: #FFCA28;
+$dark-color: #FF8F00;
+$divider-color: #f0f0f0;
+$font-color: #444444;
+
+$largest: 1.5rem;
+$large: 1.2rem;
+$medium: 1rem;
+$small: .8rem;
+$smallest: .7rem;
+
+@mixin card {
+  background-color: white;
+  box-shadow: 0 3px 8px rgba(black, .2);
+  border-radius: 8px;
+  overflow: hidden;
+}

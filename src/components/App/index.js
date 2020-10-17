@@ -9,9 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          Mom & Pop
-        </header>
         <Switch>
           <Route path="/owner">
             <OwnerDashboard />
