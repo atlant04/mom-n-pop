@@ -6,7 +6,7 @@ function OwnerDashboard() {
   return (
     <div className="OwnerDashboard">
       Owner Dashboard
-      <Blueprint3D floor={false} />
+      <Blueprint3D floor={true} />
       <button>
         Toggle
       </button>
