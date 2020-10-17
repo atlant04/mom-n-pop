@@ -6,11 +6,15 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt
 import { venues } from '../../data/venues';
 import { faAward } from '@fortawesome/free-solid-svg-icons/faAward';
 import { and, classes } from '../../utils';
+import { Link } from 'react-router-dom';
+
+const descendingVotes = (a, b) => b.votes - a.votes;
 
 function Landing() {
   const [activeWeekIndex, setActiveWeekIndex] = useState(0);
   const [voteIndex, setVoteIndex] = useState(-1);
   const [_, setRefresh] = useState(0);
+  const [venue, setVenue] = useState(venues[0]);
 
   const refresh = useCallback(() => setRefresh(Math.random()), []);
 
@@ -18,15 +22,15 @@ function Landing() {
     setVoteIndex(-1);
   }, [activeWeekIndex]);
 
-  const [venue, setVenue] = useState(venues[0]);
+  useEffect(() => {
+    setActiveWeekIndex(0);
+  }, [venue]);
 
   return (
     <div className="Landing">
       <GoogleMaps venues={venues} venue={venue} onClick={setVenue} />
-      <div className="logo">
-        mom&pop
-      </div>
-      <div className="card">
+      <div className="logo" />
+      <div className="venue-detail">
         <div className="venue">
           <FontAwesomeIcon icon={faMapMarkerAlt} fixedWidth className="icon" />
           <div className="text">
@@ -65,9 +69,9 @@ function Landing() {
                     (
                       week.voting
                         ? week.voted
-                        ? [...week.stores].sort((a, b) => b.votes - a.votes)
+                        ? [...week.stores].sort(descendingVotes)
                         : week.stores
-                        : week.stores.slice(0, 3).sort((a, b) => b.votes - a.votes)
+                        : week.stores.slice(0, 3).sort(descendingVotes)
                     ).map((store, j) => (
                       <div className={classes('store', week.voting && !week.voted && 'voting')} key={j}
                            onClick={week.voting && !week.voted ? () => setVoteIndex(j) : undefined}>
@@ -127,7 +131,7 @@ function Landing() {
                     </div>
                   ) : (
                     <div className="stores">
-                      {and(...week.stores.map(store => store.name))}
+                      {and(...[...week.stores].sort(descendingVotes).slice(0, 3).map(store => store.name))}
                     </div>
                   )
                 }
@@ -135,6 +139,12 @@ function Landing() {
             ))
           }
         </div>
+      </div>
+      <div className="portal">
+        <div className="label">
+          Are you an online merchant or retail space owner looking for one another?
+        </div>
+        <Link to="/join" className="button small">Join Us</Link>
       </div>
     </div>
   );

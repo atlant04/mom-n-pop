@@ -1,0 +1,51 @@
+@import "../../variables";
+
+.Join {
+  .content {
+    background-color: $bg-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .form {
+      flex-shrink: 0;
+      margin: 4rem;
+      @include card;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      > * {
+        flex-shrink: 0;
+      }
+
+      .logo {
+        margin-bottom: 2rem;
+        align-self: center;
+      }
+
+      .thanks {
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .title {
+        align-self: center;
+        font-size: $largest;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .MuiFormControl-root {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

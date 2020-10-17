@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
 @import "./variables";
 
@@ -21,23 +21,49 @@ body {
   overflow: hidden;
 }
 
+.button,
 button {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border: none;
   outline: none;
   font-family: inherit;
   color: white;
   font-weight: bold;
-  background: $primary-color;
+  background: $dark-color;
   border-radius: 4px;
   font-size: $large;
+  white-space: nowrap;
+  text-decoration: none;
   cursor: pointer;
 
   &:active {
-    background-color: $light-color;
+    background-color: $primary-color;
+  }
+
+  &.small {
+    font-size: $medium;
+    height: 2.5rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.logo {
+  color: $primary-color;
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
+  font-size: $largest;
+  text-decoration: none;
+
+  &:before {
+    content: 'mom&pop';
   }
 }
