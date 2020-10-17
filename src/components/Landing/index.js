@@ -22,7 +22,7 @@ function Landing() {
 
   return (
     <div className="Landing">
-      <GoogleMaps />
+      <GoogleMaps venues={venues} venue={venue} onClick={setVenue} />
       <div className="logo">
         mom&pop
       </div>
