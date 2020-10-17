@@ -9,6 +9,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <CustomerDashboard />
         <header className="App-header">
           Mom & Pop
         </header>
